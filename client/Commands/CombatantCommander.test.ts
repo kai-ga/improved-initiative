@@ -84,4 +84,39 @@ describe("CombatantCommander", () => {
       trackerViewModel.OrderedCombatants()[1]
     );
   });
+
+  test("Should remove selected", () => {
+    const combatant1 = encounter.AddCombatantFromStatBlock(StatBlock.Default());
+    const combatant2 = encounter.AddCombatantFromStatBlock(StatBlock.Default());
+
+    const combatantViewModel = trackerViewModel.OrderedCombatants()[0];
+    const playerView = encounter.GetPlayerView();
+    expect(playerView.Combatants).toHaveLength(2);
+    combatantCommander.Select(combatantViewModel);
+    combatantCommander.Remove();
+    const playerViewAfterRemove = encounter.GetPlayerView();
+    expect(playerViewAfterRemove.Combatants).toHaveLength(1);
+  });
+  test("Should deselect", () => {
+    const combatant1 = encounter.AddCombatantFromStatBlock(StatBlock.Default());
+
+    const combatantViewModel = trackerViewModel.OrderedCombatants()[0];
+    combatantCommander.Select(combatantViewModel);
+    expect(combatantCommander.SelectedCombatants).toHaveLength(1);
+    combatantCommander.Deselect();
+    expect(combatantCommander.SelectedCombatants).toHaveLength(0);
+  });
+  test("Should edit the HP on combatants", () => {
+    const combatant1 = encounter.AddCombatantFromStatBlock({
+      ...StatBlock.Default(),
+      HP: 10
+    });
+
+    const combatantViewModel = trackerViewModel.OrderedCombatants()[0];
+    const playerView = encounter.GetPlayerView();
+    expect(combatantViewModel.HP()).toEqual("10/10");
+    combatantCommander.Select(combatantViewModel);
+    combatantCommander.EditHP();
+    console.log();
+  });
 });

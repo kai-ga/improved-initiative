@@ -11,6 +11,10 @@
     "npm": "6.1.0"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^2.0.0",
+    "@stryker-mutator/html-reporter": "^2.0.0",
+    "@stryker-mutator/jest-runner": "^2.0.0",
+    "@stryker-mutator/typescript": "^2.0.0",
     "@types/awesomplete": "^1.1.6",
     "@types/body-parser": "^1.17.0",
     "@types/color": "^3.0.0",
@@ -54,6 +58,7 @@
     "less": "^3.0.4",
     "lint-staged": "^8.1.0",
     "markdown-loader-jest": "^0.1.1",
+    "mocha": "^6.1.4",
     "prettier": "^1.15.3",
     "requirejs": "^2.3.5",
     "ts-jest": "^24.0.1",
@@ -116,6 +121,7 @@
       "^.+\\.md?$": "markdown-loader-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "coverageDirectory": "coverage",
     "moduleFileExtensions": [
       "ts",
       "tsx",

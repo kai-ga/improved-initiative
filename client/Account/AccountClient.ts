@@ -1,3 +1,4 @@
+import * as $ from "jquery";
 import { Listable } from "../../common/Listable";
 import { PersistentCharacter } from "../../common/PersistentCharacter";
 import { SavedEncounter } from "../../common/SavedEncounter";
